@@ -1,0 +1,73 @@
+extends ./smart-citizen-layout.jade
+block content
+  section.kit_dataChange.ng-scope
+    section.timeline(layout-align="center center", layout="row", flex="1")
+      |<div class="timeline_container" layout="row" layout-align="center start"><div layout="column" layout-align="start center"><div class="timeline_stepCircle is-on" layout="row" layout-align="center center" ng-class="{'is-on': vm.step === 1, 'is-off': vm.step !== 1}">1</div><div class="timeline_stepName vertical">Kit data</div></div><div class="timeline_line"></div><div layout="column" layout-align="start center"><div class="timeline_stepCircle is-off" layout="row" layout-align="center center" ng-class="{'is-on': vm.step === 2, 'is-off': vm.step !== 2}">2</div><div class="timeline_stepName vertical">Set up</div></div></div>
+    section.timeline_content(flex="1")
+      section.form_block.form_blockNormal.isEven
+        div(layout-align="start start", layout="row")
+          div.form_blockContent
+            div(layout="row")
+              div.form_blockContent_text
+                h2 Basic information
+                small Please, provide kit basic info. That includes a name and exposure
+          div.form_blockInput
+            div.form_blockInput_container
+              md-input-container.md-default-theme.md-input-has-value
+                label(for="input_003") Kit Name
+                input.ng-valid.md-input.ng-touched.ng-dirty.ng-valid-parse(id="input_003", value=name)
+              div(layout-align="space-between start", layout="row")
+                div(class="form_blockInput_select")
+                  label Exposure:
+                  md-select.ng-valid.md-default-theme.ng-touched.ng-dirty.ng-valid-parse(placeholder="Select exposure")
+                    md-select-label
+                      span !{exposure}
+      section.form_block.form_blockMap
+        div(layout-align="start start", layout="row")
+          div.form_blockContent
+            div(layout="row")
+              div.form_blockContent_text
+                h2 Kit location
+                small Please, let us locate you, later you can adjust the location by dragging the marker on the map.
+          div.form_blockInput
+            img(src="/public/images/map.png", width="422")
+
+      section.form_block.form_blockNormal.isEven
+        div(layout-align="start start", layout="row")
+          div.form_blockContent
+            div(layout="row")
+              div.form_blockContent_text
+                h2 Kit tags
+                small Kits can be grouped by tags. Choose from the available tags or submit a tag request on the Forum.
+          div.form_blockInput
+
+      section.form_block.form_blockNormal
+        div(layout-align="start start", layout="row")
+          div.form_blockContent
+            div(layout="row")
+              div.form_blockContent_text
+                h2 Kit description
+                small Say something nice about your kit. Why is it for? Is this part of any kind of project? Whatever :)
+          div.form_blockInput
+
+      section.form_block.form_blockNormal.isEven
+        div(layout-align="start start", layout="row")
+          div.form_blockContent
+            div(layout="row")
+              div.form_blockContent_text
+                h2 Data Licence
+                small Data licences are a tool that give you ownership and control of your data. You set the rules of engagement, and decide if you want to share your data, who can access it and what it can be used for. This means you can choose to be completely private, or share your information under certain terms.
+          div.form_blockInput
+            if licenced == true
+              p A licence has been published for this kit.
+              dl
+                dt Published:
+                dd today
+                dt Expires:
+                dd 6 months
+              p
+                <a href="/data-licences">View licence</a>
+            else
+              p This data has not been licenced
+              p
+                a.call-to-action.md-button.md-default-theme(href="/data-licences/build") Add a licence now

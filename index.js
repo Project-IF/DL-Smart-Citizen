@@ -28,11 +28,11 @@ app.get('/smart-citizen/profile/kits', function(req, res) {
 });
 
 app.get('/smart-citizen/profile/kits/1', function(req, res) {
-  res.render('smart-citizen-kit-licensed');
+  res.render('smart-citizen-kit-detail', {name: 'Testing kit', exposure: 'Indoor', licenced:true});
 });
 
 app.get('/smart-citizen/profile/kits/2', function(req, res) {
-  res.render('smart-citizen-kit-unlicensed');
+  res.render('smart-citizen-kit-detail', {name: 'john rees smart citizen', exposure: 'Outdoor', licenced:false});
 });
 
 app.get('/data-licences', function(req, res) {
