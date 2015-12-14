@@ -1,0 +1,6 @@
+extends ./data-licences-layout.jade
+block content
+  form.auto-submit(method="get", action="/data-licences/build/published")
+    h1 Publishing
+    img(src="/public/images/loading.gif")
+    button(id="publishing-complete", type="submit") Done
