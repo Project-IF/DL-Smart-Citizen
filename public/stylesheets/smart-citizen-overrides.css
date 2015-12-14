@@ -1,0 +1,25 @@
+.static_page .md-button {
+  color: #FFF;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 8px 31px;
+}
+
+a.kitList.kitList_primary.md-button.md-default-theme {
+  position:relative;
+}
+
+.static_page h4 {
+  font-weight:400;
+}
+
+.profile_content_main_kits {
+  border-bottom:solid 1px #EAECF1;
+}
+
+
+.profile_content_main_kits .call-to-action {
+  position:absolute;
+  top:25px;
+  right:10px;
+}
